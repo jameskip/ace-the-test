@@ -10,7 +10,9 @@ describe('Signup', () => {
 
   beforeAll(async () => {
     try {
+      await page.tracing.start({ path: './tests/performance/trace.json' })
       await page.goto('https://ace-web-stg.herokuapp.com/user/signup')
+      await page.tracing.stop()
     } catch (e) {
       throw new Error(e)
     }
