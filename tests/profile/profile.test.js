@@ -2,7 +2,7 @@
 /* eslint-disable no-global-assign */
 
 const faker = require('faker')
-const { makeADob } = require('./helpers.js')
+const { makeADob, makeANumber } = require('./helpers.js')
 
 describe('Profile', () => {
   beforeAll(async () => {
@@ -54,9 +54,9 @@ describe('Profile', () => {
       console.log({ first, last })
       const randomInfo = {
         email: randomCard.email,
-        phone: randomCard.phone,
-        first: first,
-        last: last,
+        phone: makeANumber(),
+        first,
+        last,
         dob: makeADob()
       }
       console.log({ randomInfo })
