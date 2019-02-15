@@ -1,4 +1,5 @@
 /* global page browser */
+/* eslint-disable no-global-assign */
 
 describe('Login and logout', () => {
   beforeAll(async () => {
@@ -32,17 +33,17 @@ describe('Login and logout', () => {
       await page.type('#password', 'Whoami12?')
       await page.click('[type=submit]')
       await page.waitForNavigation()
-      await page.screenshot({ path: './tests/screenshots/validLoginAttempt.png' })
+      await page.screenshot({ path: './tests/login/screenshots/validLoginAttempt.png' })
     } catch (e) {
       throw new Error(e)
     }
   })
 
-  it('should log user ousdt"', async () => {
+  it('should log user out"', async () => {
     try {
       await page.click('#nav-user-signout')
       await expect(page.url()).toMatch('https://ace-web-stg.herokuapp.com/user/signin')
-      await page.screenshot({ path: './tests/screenshots/signOut.png' })
+      await page.screenshot({ path: './tests/login/screenshots/signOut.png' })
     } catch (e) {
       throw new Error(e)
     }

@@ -1,4 +1,4 @@
-/* global page */
+/* global page browser */
 /* eslint-disable no-global-assign */
 
 const faker = require('faker')
@@ -10,7 +10,7 @@ describe('Signup', () => {
 
   beforeAll(async () => {
     try {
-      await page.tracing.start({ path: './tests/performance/signup-trace.json' })
+      await page.tracing.start({ path: './tests/signup/performance/signup-trace.json' })
       await page.goto('https://ace-web-stg.herokuapp.com/user/signup')
       await page.tracing.stop()
     } catch (e) {
@@ -35,10 +35,10 @@ describe('Signup', () => {
       await page.type('#password', randomPassword)
       await page.click('select.form-control')
       await page.type('select.form-control', 'Texas Pre-License Required - Law of Agency')
-      await page.screenshot({ path: './tests/screenshots/signup.png' })
+      await page.screenshot({ path: './tests/signup/screenshots/signup.png' })
       await page.click('[type="submit"]')
       await page.waitForNavigation()
-      await page.screenshot({ path: './tests/screenshots/signup-after.png' })
+      await page.screenshot({ path: './tests/signup/screenshots/signup-after.png' })
       await expect(page).toMatch('Texas Pre-License Required - Law of Agency')
     } catch (e) {
       throw new Error(e)
@@ -55,10 +55,10 @@ describe('Signup', () => {
         cvc: '999'
       })
       await page.click('#tandc')
-      await page.screenshot({ path: './tests/screenshots/purchase.png' })
+      await page.screenshot({ path: './tests/signup/screenshots/purchase.png' })
       await page.click('[type="submit"]')
       await page.waitForSelector('section[class="content-block"]')
-      await page.screenshot({ path: './tests/screenshots/done.png' })
+      await page.screenshot({ path: './tests/signup/screenshots/done.png' })
       await expect(page).toClick('button[value="Continue"]')
     } catch (e) {
       throw new Error(e)
