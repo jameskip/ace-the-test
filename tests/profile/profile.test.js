@@ -52,7 +52,7 @@ describe('Profile', () => {
       const randomCard = faker.helpers.createCard()
       const [first, last] = randomCard.name.split(' ')
 
-      const randomInfo = {
+      const fakeInfo = {
         email: randomCard.email,
         phone: makeANumber(),
         first,
@@ -64,19 +64,19 @@ describe('Profile', () => {
         state: randomCard.address.state,
         zip: makeAzip()
       }
-      console.log({ randomInfo })
+      console.log({ fakeInfo })
 
       await expect(page).toFillForm('form[name="profileForm"]', {
-        // EMAIL_ADDRESS: randomInfo.email, // actually changing the email of a test account will break some tests
-        PHONE_NUMBER: randomInfo.phone,
-        FIRST_NAME: randomInfo.first,
-        LAST_NAME: randomInfo.last,
-        BIRTH_DATE: randomInfo.dob,
-        GENDER: randomInfo.gender,
-        ADDRESS_STREET: randomInfo.address,
-        ADDRESS_CITY: randomInfo.city,
-        ADDRESS_STATE: randomInfo.state,
-        ADDRESS_POSTAL: randomInfo.zip
+        // EMAIL_ADDRESS: fakeInfo.email, // actually changing the email of a test account will break some tests
+        PHONE_NUMBER: fakeInfo.phone,
+        FIRST_NAME: fakeInfo.first,
+        LAST_NAME: fakeInfo.last,
+        BIRTH_DATE: fakeInfo.dob,
+        GENDER: fakeInfo.gender,
+        ADDRESS_STREET: fakeInfo.address,
+        ADDRESS_CITY: fakeInfo.city,
+        ADDRESS_STATE: fakeInfo.state,
+        ADDRESS_POSTAL: fakeInfo.zip
       })
 
       await expect(page).toClick('button', { text: 'Save' })
