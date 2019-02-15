@@ -2,7 +2,7 @@
 /* eslint-disable no-global-assign */
 
 const faker = require('faker')
-const { makeADob, makeANumber } = require('./helpers.js')
+const { makeADob, makeANumber, pickAGender, makeAzip } = require('./helpers.js')
 
 describe('Profile', () => {
   beforeAll(async () => {
@@ -51,15 +51,38 @@ describe('Profile', () => {
     try {
       const randomCard = faker.helpers.createCard()
       const [first, last] = randomCard.name.split(' ')
-      console.log({ first, last })
+
       const randomInfo = {
         email: randomCard.email,
         phone: makeANumber(),
         first,
         last,
-        dob: makeADob()
+        dob: makeADob(),
+        gender: pickAGender(),
+        address: randomCard.address.streetB,
+        city: randomCard.address.city,
+        state: randomCard.address.state,
+        zip: makeAzip()
       }
       console.log({ randomInfo })
+
+      await expect(page).toFillForm('form[name="profileForm"]', {
+        // EMAIL_ADDRESS: randomInfo.email, // actually changing the email of a test account will break some tests
+        PHONE_NUMBER: randomInfo.phone,
+        FIRST_NAME: randomInfo.first,
+        LAST_NAME: randomInfo.last,
+        BIRTH_DATE: randomInfo.dob,
+        GENDER: randomInfo.gender,
+        ADDRESS_STREET: randomInfo.address,
+        ADDRESS_CITY: randomInfo.city,
+        ADDRESS_STATE: randomInfo.state,
+        ADDRESS_POSTAL: randomInfo.zip
+      })
+
+      await expect(page).toClick('button', { text: 'Save' })
+      await page.screenshot({ path: './tests/profile/screenshots/profileForm.png' })
+      await page.waitForSelector('button.ace-btn.ace-btn--secondary')
+      await page.screenshot({ path: './tests/profile/screenshots/welcome.png' })
     } catch (e) {
       throw new Error(e)
     }
