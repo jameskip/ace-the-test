@@ -22,7 +22,7 @@ and give verdict of pass or fail.
 #### Notes
 - Staging URL: `ace-web-stg.herokuapp.com`
 
-# Getting Started
+# Getting Started :sparkles:
 
 ## Prerequisites
 ```
