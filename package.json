@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "test": "jest",
-    "report": "jest --reporters default jest-stare"
+    "report": "jest --reporters default jest-stare",
+    "debug": "ndb jest"
   },
   "repository": {
     "type": "git",
