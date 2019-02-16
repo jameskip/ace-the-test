@@ -1,4 +1,4 @@
-# Test Assignment :rocket:
+# Test Assignment 🚀
 Develop an automation test script suite for our Texas Pre-License Required - Law of Agency course for our real estate vertical.
 
 ## Requirements
@@ -22,7 +22,7 @@ and give verdict of pass or fail.
 #### Notes
 - Staging URL: `ace-web-stg.herokuapp.com`
 
-# Getting Started :sparkles:
+# Getting Started ⚡️
 
 ## Prerequisites
 ```
