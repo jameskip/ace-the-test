@@ -37,7 +37,7 @@ Install dependencies
 $ yarn
 ```
 
-# Running Tests
+## Running Tests
 ```bash
 $ yarn test
 ```
@@ -47,26 +47,26 @@ $ yarn test
 $ yarn report
 ```
 
-# Built With
+## Built With
 - [Jest](https://jestjs.io/) - Delightful JavaScript Testing
 - [Puppeteer](https://pptr.dev/) - Headless Chrome Node API
 - [node](https://nodejs.org/en/) - JavaScript runtime built on Chrome's V8 JavaScript engine
 - [jest-stare](https://dkelosky.github.io/jest-stare/) - Jest HTML Reporter and Results Processor
 
-# Recommended Editor
+## Recommended Editor
 We recommend using VS Code for debugging tests with the following extensions installed:
 - Debugger for Chrome, Microsoft
 - ESLint, Dirk Baeumer
 - Jest, Orta
 
-# Style Guide
+## Style Guide
 [StandardJS](https://standardjs.com/)
 
-# Helpful Links
+## Helpful Links
 - [Puppeteer API](https://github.com/GoogleChrome/puppeteer/blob/v1.12.2/docs/api.md)
 - [expect-puppeteer](https://github.com/smooth-code/jest-puppeteer/tree/master/packages/expect-puppeteer)
 - [faker](https://github.com/Marak/faker.js)
 - [ndb](https://github.com/GoogleChromeLabs/ndb)
 
-# Troubleshooting
+## Troubleshooting
  - [Jest Troubleshooting](https://jestjs.io/docs/en/troubleshooting)
