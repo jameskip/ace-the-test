@@ -13,7 +13,7 @@ Develop an automation test script suite for our Texas Pre-License Required - Law
 5. [ ] Make sure to document the process and be prepared with all scripts ready to run the test
 and give verdict of pass or fail.
 
-## Extra Credit:
+## Extra Credit
 - [ ] Create a similar test on mobile
 - [ ] Run the web test on different browsers
 - [ ] Create a test outline and roadmap for any additional features
