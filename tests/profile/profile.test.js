@@ -25,7 +25,7 @@ describe('Profile', () => {
   it('should log user in with valid login"', async () => {
     try {
       // Submit login form
-      await page.type('#email', 'borisyeltsin@xiixii.pw')
+      await page.type('#email', 'creed@dundermifflin.com')
       await page.type('#password', 'Whoami12?')
       await page.click('[type=submit]')
       await page.waitForNavigation()

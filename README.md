@@ -8,8 +8,8 @@ Develop an automation test script suite for our Texas Pre-License Required - Law
     - [x] Completing the profile information
     - [ ] Go through multiple pages of the course to test different features (no need to complete the full course)
 2. [x] Report passing or failing tests in a clear way
-3. [ ] Identify why a test failed
-4. [ ] Report test failure to devs
+3. [x] Identify why a test failed
+4. [x] Report test failure to devs
 5. [ ] Make sure to document the process and be prepared with all scripts ready to run the test
 and give verdict of pass or fail.
 
@@ -68,6 +68,7 @@ We recommend using VS Code for debugging tests with the following extensions ins
 - [expect-puppeteer](https://github.com/smooth-code/jest-puppeteer/tree/master/packages/expect-puppeteer)
 - [faker](https://github.com/Marak/faker.js)
 - [ndb](https://github.com/GoogleChromeLabs/ndb)
+- [Stripe Testing](https://stripe.com/docs/testing)
 
 ## Troubleshooting
 - [Jest Troubleshooting](https://jestjs.io/docs/en/troubleshooting)

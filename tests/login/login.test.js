@@ -40,7 +40,7 @@ describe('Login and logout', () => {
   it('should log user in with valid login"', async () => {
     try {
       // Submit sigin form
-      await page.type('#email', 'borisyeltsin@xiixii.pw')
+      await page.type('#email', 'creed@dundermifflin.com')
       await page.type('#password', 'Whoami12?')
       await page.click('[type=submit]')
       // Assert
