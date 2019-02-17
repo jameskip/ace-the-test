@@ -64,9 +64,13 @@ We recommend using VS Code for debugging tests with the following extensions ins
 
 ## Helpful Links
 - [Puppeteer API](https://github.com/GoogleChrome/puppeteer/blob/v1.12.2/docs/api.md)
+- [Jest CLI Options](https://jestjs.io/docs/en/cli.html)
 - [expect-puppeteer](https://github.com/smooth-code/jest-puppeteer/tree/master/packages/expect-puppeteer)
 - [faker](https://github.com/Marak/faker.js)
 - [ndb](https://github.com/GoogleChromeLabs/ndb)
 
 ## Troubleshooting
  - [Jest Troubleshooting](https://jestjs.io/docs/en/troubleshooting)
+
+ ## Bugs
+ Yes, even tests have bugs sometimes. Please create an issue [here](https://github.com/jkcon/ace-the-test/issues) if you find any.

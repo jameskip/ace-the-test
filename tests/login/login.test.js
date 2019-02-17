@@ -27,6 +27,16 @@ describe('Login and logout', () => {
     }
   })
 
+  it('App Store link should direct to valid app in Apple App Store', async () => {
+    try {
+      // let iOSLink = await page.$('div.app-links:nth-child(1)')
+      // TODO: Click on invalid App Store link (this test should fail)
+      await page.screenshot({ path: './tests/login/screenshots/app-store-click.png' })
+    } catch (e) {
+      throw new Error(e)
+    }
+  })
+
   it('should log user in with valid login"', async () => {
     try {
       // Submit sigin form

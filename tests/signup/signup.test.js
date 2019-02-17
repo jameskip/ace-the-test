@@ -66,6 +66,18 @@ describe('Signup', () => {
       await page.waitForSelector('section[class="content-block"]')
       await page.screenshot({ path: './tests/signup/screenshots/done.png' })
       await expect(page).toClick('button[value="Continue"]')
+      // TODO:
+      // await expect(page).toClick('button', { text: 'Resume Course ' })
+      // await page.waitForNavigation()
+      // await page.screenshot({ path: './tests/signup/screenshots/done-for-real.png' })
+    } catch (e) {
+      throw new Error(e)
+    }
+  })
+
+  it('Should complete agreement', async () => {
+    try {
+      // complete agreement :)
     } catch (e) {
       throw new Error(e)
     }
