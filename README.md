@@ -70,7 +70,7 @@ We recommend using VS Code for debugging tests with the following extensions ins
 - [ndb](https://github.com/GoogleChromeLabs/ndb)
 
 ## Troubleshooting
- - [Jest Troubleshooting](https://jestjs.io/docs/en/troubleshooting)
+- [Jest Troubleshooting](https://jestjs.io/docs/en/troubleshooting)
 
- ## Bugs
- Yes, even tests have bugs sometimes. Please create an issue [here](https://github.com/jkcon/ace-the-test/issues) if you find any.
+## Bugs
+Yes, even tests have bugs sometimes. Please create an issue [here](https://github.com/jkcon/ace-the-test/issues) if you find any.
