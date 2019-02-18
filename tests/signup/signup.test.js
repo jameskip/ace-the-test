@@ -32,6 +32,7 @@ describe('Signup', () => {
   it('User should signup using new credentials', async () => {
     try {
       // Submit signup form
+      await page.waitForSelector('#email')
       await page.type('#email', randomUser.email)
       await page.type('#firstName', randomUser.name)
       await page.type('#password', randomUser.password)
@@ -63,19 +64,15 @@ describe('Signup', () => {
       await page.screenshot({ path: './tests/signup/screenshots/purchase.png' })
       await page.click('[type="submit"]')
       // Assert
-      await page.waitForSelector('section[class="content-block"]')
+      await page.waitForSelector('button[value="Continue"]')
       await page.screenshot({ path: './tests/signup/screenshots/done.png' })
-      await expect(page).toClick('button[value="Continue"]')
-      // TODO:
-      // await expect(page).toClick('button', { text: 'Resume Course ' })
-      // await page.waitForNavigation()
-      // await page.screenshot({ path: './tests/signup/screenshots/done-for-real.png' })
+      await page.click('button[value="Continue"]')
     } catch (e) {
       throw new Error(e)
     }
   })
 
-  it('Should complete agreement', async () => {
+  it.skip('Should verify agreement', async () => {
     try {
       // complete agreement :)
     } catch (e) {

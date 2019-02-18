@@ -53,6 +53,7 @@ describe('Login and logout', () => {
 
   it('should log user out"', async () => {
     try {
+      await page.waitForSelector('#nav-user-signout')
       await page.click('#nav-user-signout')
       await expect(page.url()).toMatch('https://ace-web-stg.herokuapp.com/user/signin')
       await page.screenshot({ path: './tests/login/screenshots/signOut.png' })

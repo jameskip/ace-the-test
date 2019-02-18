@@ -1,11 +1,11 @@
 /* global page browser */
 /* eslint-disable no-global-assign */
-const { login, purchase } = require('./helpers.js')
+const { signUp, verify, login, purchase } = require('./helpers.js')
 
 describe('Course', () => {
   beforeAll(async () => {
     try {
-      await page.goto('https://ace-web-stg.herokuapp.com/user/signin')
+      await page.goto('https://ace-web-stg.herokuapp.com/user/signup')
     } catch (e) {
       throw new Error(e)
     }
@@ -20,12 +20,11 @@ describe('Course', () => {
     }
   })
 
-  it('Course Test 1', async (done) => {
+  it('Should verify agreement', async (done) => {
     try {
-      const url = await page.url()
-      console.log({ url })
-      await login()
-      await page.screenshot({ path: './tests/course/screenshots/test.png' })
+      await signUp()
+      await verify()
+      await page.screenshot({ path: './tests/course/screenshots/verify.png' })
       done()
     } catch (e) {
       throw new Error(e)

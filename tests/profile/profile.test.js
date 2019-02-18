@@ -80,7 +80,6 @@ describe('Profile', () => {
       })
 
       await expect(page).toClick('button', { text: 'Save' })
-      await page.screenshot({ path: './tests/profile/screenshots/profileForm.png' })
       await page.waitForSelector('button.ace-btn.ace-btn--secondary')
       await page.screenshot({ path: './tests/profile/screenshots/welcome.png' })
     } catch (e) {
