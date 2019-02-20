@@ -47,6 +47,17 @@ $ yarn test
 $ yarn report
 ```
 
+## Folder Structure
+```bash
+ |-- tests
+    |-- component
+      |-- performance
+        |-- performance.json
+      |-- screenshots
+        |-- screenshot.png
+      |-- component.test.js
+```
+
 ## Built With
 - [Jest](https://jestjs.io/) - Delightful JavaScript Testing
 - [Puppeteer](https://pptr.dev/) - Headless Chrome Node API
