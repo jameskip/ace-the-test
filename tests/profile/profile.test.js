@@ -2,7 +2,7 @@
 /* eslint-disable no-global-assign */
 
 const faker = require('faker')
-const { makeADob, makeANumber, pickAGender, makeAzip } = require('./helpers.js')
+const helpers = require('../helpers.js')
 
 describe('Profile', () => {
   beforeAll(async () => {
@@ -29,7 +29,7 @@ describe('Profile', () => {
       await page.type('#password', 'Whoami12?')
       await page.click('[type=submit]')
       await page.waitForNavigation()
-      await page.screenshot({ path: './tests/profile/screenshots/validLoginAttempt.png' })
+      await page.screenshot({ path: './tests/profile/screenshots/1-validLoginAttempt.png' })
     } catch (e) {
       throw new Error(e)
     }
@@ -40,7 +40,7 @@ describe('Profile', () => {
       // Open user profile
       await page.click('#nav-user-profile')
       await page.waitForNavigation()
-      await page.screenshot({ path: './tests/profile/screenshots/profile.png' })
+      await page.screenshot({ path: './tests/profile/screenshots/2-profile.png' })
       await expect(page.title()).resolves.toMatch('Aceable Agent | Profiler')
     } catch (e) {
       throw new Error(e)
@@ -54,15 +54,15 @@ describe('Profile', () => {
 
       const fakeInfo = {
         email: randomCard.email,
-        phone: makeANumber(),
+        phone: helpers.makeANumber(),
         first,
         last,
-        dob: makeADob(),
-        gender: pickAGender(),
+        dob: helpers.makeADob(),
+        gender: helpers.pickAGender(),
         address: randomCard.address.streetB,
         city: randomCard.address.city,
         state: randomCard.address.state,
-        zip: makeAzip()
+        zip: helpers.makeAzip()
       }
       console.log({ fakeInfo })
 

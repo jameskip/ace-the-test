@@ -4,6 +4,7 @@ const faker = require('faker')
 const helpers = require('../helpers.js')
 
 describe('Course', () => {
+  jest.setTimeout(10000)
   const randomUser = {
     name: faker.name.firstName(),
     last: faker.name.lastName(),
@@ -38,19 +39,19 @@ describe('Course', () => {
       await page.type('#firstName', randomUser.name)
       await page.type('#password', randomUser.password)
       await page.click('select.form-control') // HACK: to select dropdown and not generate error
-      await page.type('select.form-control', 'Texas Pre-License Required - Law of Agency')
-      await page.screenshot({ path: './tests/course/screenshots/signup.png' })
+      await page.type('select.form-control', 'Texas Pre-License - Law of Agency')
+      await page.screenshot({ path: './tests/course/screenshots/1-signup.png' })
       await page.click('[type="submit"]')
       // Assert
       await page.waitForNavigation()
-      await page.screenshot({ path: './tests/course/screenshots/signup-after.png' })
-      // await expect(page).toMatch('Texas Pre-License Required - Law of Agency')
+      await page.screenshot({ path: './tests/course/screenshots/2-signup-after.png' })
+      await expect(page).toMatch('Texas Pre-License - Law of Agency')
     } catch (e) {
       throw new Error(e)
     }
   })
 
-  it('User should be able to complete $99 purchase', async (done) => {
+  it('User should be able to complete $99 purchase', async () => {
     try {
       // Navigate to purchase page
       await page.click('button.ace-btn')
@@ -62,14 +63,13 @@ describe('Course', () => {
         cvc: '999'
       })
       await page.click('#tandc') // Terms and Conditions
-      await page.screenshot({ path: './tests/course/screenshots/purchase.png' })
+      await page.screenshot({ path: './tests/course/screenshots/3-purchase.png' })
       await page.click('[type="submit"]')
       // Assert
       await page.waitForSelector('button[value="Continue"]')
-      await page.screenshot({ path: './tests/course/screenshots/done.png' })
+      await page.screenshot({ path: './tests/course/screenshots/4-continue.png' })
       await page.click('button[value="Continue"]')
-      await page.screenshot({ path: './tests/course/screenshots/done2.png' })
-      done()
+      await page.screenshot({ path: './tests/course/screenshots/5-resume-course.png' })
     } catch (e) {
       throw new Error(e)
     }
@@ -78,29 +78,24 @@ describe('Course', () => {
   it('Should verify agreement', async () => {
     try {
       await page.click('button.ace-btn')
+      await page.waitForSelector('.ace-btn.ace-btn--secondary.ace-btn--wide--somewhat.mt5')
+      await page.screenshot({ path: './tests/course/screenshots/6-verify.png' })
+      await page.click('.ace-btn.ace-btn--secondary.ace-btn--wide--somewhat.mt5')
       await page.waitForNavigation()
-      await page.screenshot({ path: './tests/course/screenshots/verify.png' })
-      await page.click('button.ace-btn.ace-btn--secondary')
-      await page.waitForNavigation()
-      await page.screenshot({ path: './tests/course/screenshots/verify2.png' })
+
+      await page.screenshot({ path: './tests/course/screenshots/7-agreement.png' })
       await page.type('#input__AGREEMENTS_INLINE_CONTRACT', randomUser.name)
       await page.click('button.ace-btn.ace-btn--primary')
-      await page.waitForNavigation()
-      await page.screenshot({ path: './tests/course/screenshots/verify3.png' })
+      await page.screenshot({ path: './tests/course/screenshots/8-agreement-filled.png' })
+      await page.waitForSelector('#input__PHONE_NUMBER')
+
       await page.type('#input__PHONE_NUMBER', randomUser.phone)
       await page.type('#input__LAST_NAME', randomUser.last)
       await page.type('#input__BIRTH_DATE', randomUser.dob)
-      // await page.click('button.ace-btn.ace-btn--primary')
-      // await page.waitForNavigation()
-      await page.screenshot({ path: './tests/course/screenshots/verify4.png' })
-    } catch (e) {
-      throw new Error(e)
-    }
-  })
-
-  it.skip('', async () => {
-    try {
-
+      await page.screenshot({ path: './tests/course/screenshots/9-gen-info.png' })
+      await page.click('button.ace-btn.ace-btn--primary')
+      await page.waitForNavigation()
+      await page.screenshot({ path: './tests/course/screenshots/10-verification.png' })
     } catch (e) {
       throw new Error(e)
     }

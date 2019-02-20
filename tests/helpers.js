@@ -3,7 +3,7 @@ module.exports = {
     let randomDob = {
       month: Math.floor(Math.random() * 12) + 1,
       day: Math.floor(Math.random() * 29) + 1,
-      year: Math.floor(Math.random() * (2000 - 1900 + 1) + 1900)
+      year: Math.floor(Math.random() * (1990 - 1900 + 1) + 1900)
     }
 
     if (randomDob.month < 10) {

@@ -39,12 +39,11 @@ describe('Signup', () => {
       await page.type('#password', randomUser.password)
       await page.click('select.form-control') // HACK: to select dropdown and not generate error
       await page.type('select.form-control', 'Texas Pre-License - Law of Agency')
-      await page.screenshot({ path: './tests/signup/screenshots/signup.png' })
+      await page.screenshot({ path: './tests/signup/screenshots/1-signup.png' })
       await page.click('[type="submit"]')
       // Assert
       await page.waitForNavigation()
-      await page.screenshot({ path: './tests/signup/screenshots/signup-after.png' })
-      await expect(page).toMatch('Texas Pre-License - Law of Agency')
+      await page.screenshot({ path: './tests/signup/screenshots/2-signup-after.png' })
     } catch (e) {
       throw new Error(e)
     }
@@ -62,20 +61,12 @@ describe('Signup', () => {
         cvc: '999'
       })
       await page.click('#tandc') // Terms and Conditions
-      await page.screenshot({ path: './tests/signup/screenshots/purchase.png' })
+      await page.screenshot({ path: './tests/signup/screenshots/3-purchase.png' })
       await page.click('[type="submit"]')
       // Assert
       await page.waitForSelector('button[value="Continue"]')
-      await page.screenshot({ path: './tests/signup/screenshots/done.png' })
+      await page.screenshot({ path: './tests/signup/screenshots/4-done.png' })
       await page.click('button[value="Continue"]')
-    } catch (e) {
-      throw new Error(e)
-    }
-  })
-
-  it.skip('Should verify agreement', async () => {
-    try {
-      // complete agreement :)
     } catch (e) {
       throw new Error(e)
     }
