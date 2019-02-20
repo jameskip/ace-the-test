@@ -31,7 +31,7 @@ describe('Login and logout', () => {
     try {
       // let iOSLink = await page.$('div.app-links:nth-child(1)')
       // TODO: Click on invalid App Store link (this test should fail)
-      await page.screenshot({ path: './tests/login/screenshots/app-store-click.png' })
+      await page.screenshot({ path: './tests/login/screenshots/1-app-store-click.png' })
     } catch (e) {
       throw new Error(e)
     }
@@ -45,7 +45,7 @@ describe('Login and logout', () => {
       await page.click('[type=submit]')
       // Assert
       await page.waitForNavigation()
-      await page.screenshot({ path: './tests/login/screenshots/validLoginAttempt.png' })
+      await page.screenshot({ path: './tests/login/screenshots/2-valid-login.png' })
     } catch (e) {
       throw new Error(e)
     }
@@ -53,10 +53,9 @@ describe('Login and logout', () => {
 
   it('should log user out"', async () => {
     try {
-      await page.waitForSelector('#nav-user-signout')
       await page.click('#nav-user-signout')
       await expect(page.url()).toMatch('https://ace-web-stg.herokuapp.com/user/signin')
-      await page.screenshot({ path: './tests/login/screenshots/signOut.png' })
+      await page.screenshot({ path: './tests/login/screenshots/3-signout.png' })
     } catch (e) {
       throw new Error(e)
     }
