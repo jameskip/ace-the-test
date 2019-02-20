@@ -66,7 +66,6 @@ describe('Signup', () => {
       // Assert
       await page.waitForSelector('button[value="Continue"]')
       await page.screenshot({ path: './tests/signup/screenshots/4-done.png' })
-      await page.click('button[value="Continue"]')
     } catch (e) {
       throw new Error(e)
     }
