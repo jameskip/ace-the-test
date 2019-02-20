@@ -4,6 +4,7 @@
 const faker = require('faker')
 
 describe('Signup', () => {
+  jest.setTimeout(10000)
   const randomUser = {
     name: faker.name.firstName(),
     email: faker.internet.email(),
@@ -37,13 +38,13 @@ describe('Signup', () => {
       await page.type('#firstName', randomUser.name)
       await page.type('#password', randomUser.password)
       await page.click('select.form-control') // HACK: to select dropdown and not generate error
-      await page.type('select.form-control', 'Texas Pre-License Required - Law of Agency')
+      await page.type('select.form-control', 'Texas Pre-License - Law of Agency')
       await page.screenshot({ path: './tests/signup/screenshots/signup.png' })
       await page.click('[type="submit"]')
       // Assert
       await page.waitForNavigation()
       await page.screenshot({ path: './tests/signup/screenshots/signup-after.png' })
-      await expect(page).toMatch('Texas Pre-License Required - Law of Agency')
+      await expect(page).toMatch('Texas Pre-License - Law of Agency')
     } catch (e) {
       throw new Error(e)
     }
